@@ -14,6 +14,6 @@ Project Highlights:
 
 🌐 Smooth Patient Journey: Prioritized user experience by creating an easy-to-navigate interface, enabling patients to search for doctors, view their profiles, and schedule appointments hassle-free.
 
-Your feedback and thoughts are invaluable as I continue my journey in web development. 🌟
+I cordially invite you to explore the demo to experience the features of our medical appointment scheduling system! Your feedback and thoughts are invaluable as I continue my journey in web development. 🌟
 
 
