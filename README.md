@@ -14,6 +14,6 @@ Project Highlights:
 
 🌐 Smooth Patient Journey: Prioritized user experience by creating an easy-to-navigate interface, enabling patients to search for doctors, view their profiles, and schedule appointments hassle-free.
 
-Your feedback and thoughts are invaluable as I continue my journey in web development. 🌟Your feedback and insights are invaluable as I continue to refine this essential tool in healthcare. 🌟
+Your feedback and thoughts are invaluable as I continue my journey in web development. 🌟
 
-#SoftwareEngineering #ASPNETMVC #MedicalAppointmentScheduling #InnovationInHealthcare #HealthTech #CodePassion
+
