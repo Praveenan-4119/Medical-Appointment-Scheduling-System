@@ -13,6 +13,7 @@ Project Highlights:
 🚀 Innovative Features: Implemented dynamic appointment scheduling, allowing patients to view real-time availability of doctors and select suitable time slots.
 
 🌐 Smooth Patient Journey: Prioritized user experience by creating an easy-to-navigate interface, enabling patients to search for doctors, view their profiles, and schedule appointments hassle-free.
+
 Your feedback and thoughts are invaluable as I continue my journey in web development. 🌟Your feedback and insights are invaluable as I continue to refine this essential tool in healthcare. 🌟
 
 #SoftwareEngineering #ASPNETMVC #MedicalAppointmentScheduling #InnovationInHealthcare #HealthTech #CodePassion
