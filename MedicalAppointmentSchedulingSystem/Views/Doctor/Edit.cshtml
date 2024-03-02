@@ -1,0 +1,106 @@
+﻿@model MedicalAppointmentSchedulingSystem.Models.Domain.Doctor
+@{
+
+}
+
+<style>
+    .w1-40 {
+        max-width: 650px;
+        margin: 0px 0px 0px 0px;
+        padding: 20px;
+        background: linear-gradient(#8BD7F0,#fff);
+        border: 2px solid #1FB0DF;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-default1 {
+        background: linear-gradient(to right, #1FB0DF, #1FB0DF);
+    }
+</style>
+
+<body style="background-image:url('/images/AddDoctor.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; height: 100vh; margin: 0; padding: 0;">
+<form class="w1-40" asp-action="Edit" method="post" enctype="multipart/form-data">
+    <h2 class="pb-10">Update Doctor Details</h2>    
+    <input type="hidden" class="input" asp-for="Id">
+    <input type="hidden" class="input" asp-for="DoctorImage">
+
+    <div class="input-container">
+        <label asp-for="DoctorName" class="w-40">Doctor Name</label>
+        <input type="text" class="input" asp-for="DoctorName">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="DoctorName"> </span>
+    </div>
+
+        <div class="input-container">
+            <label asp-for="DateOfBirth" class="w-40">Date of Birth</label>
+            <input type="date" class="input" asp-for="DateOfBirth">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="DateOfBirth"> </span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="Gender" class="w-40">Gender(Male/Female)</label>
+            <input type="text" class="input" asp-for="Gender">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="Gender"> </span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="Specialization" class="w-40">Specialization</label>
+            <input type="text" class="input" asp-for="Specialization">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="Specialization"> </span>
+        </div>
+
+    <div class="input-container">
+        <label asp-for="Experience" class="w-40">Image</label>
+            <input type="file" asp-for="ImageFile" style="margin: 15px 0px 0px -65px">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="ImageFile"> </span>
+    </div>
+
+   
+
+    <div class="input-container">
+        <label asp-for="Address" class="w-40">Address</label>
+        <input type="text" class="input" asp-for="Address">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Address"> </span>
+    </div>
+
+    <div class="input-container">
+        <label asp-for="PhoneNumber" class="w-40">Phone Number</label>
+        <input type="text" class="input" asp-for="PhoneNumber">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="PhoneNumber"> </span>
+    </div>
+
+    <div class="input-container">
+        <label asp-for="Experience" class="w-40">Experience Years</label>
+        <input type="text" class="input" asp-for="Experience">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Experience"> </span>
+    </div>
+
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert mb-1">
+            @TempData["msg"]
+        </div>
+    }
+
+    <div class="input-container">
+            <button class="btn btn-default1 " type="submit">Save</button>
+            <a class="btn btn-default1 " href="/Doctor/DoctorList">All records</a>
+    </div>
+</form>
+</body>

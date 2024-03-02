@@ -1,0 +1,195 @@
+﻿@model MovieStoreMvc.Models.Domain.Schedule
+@{
+}
+
+<style>
+    .w1-40 {
+        max-width: 650px;
+        margin: 0px 0px 0px 0px;
+        padding: 20px;
+        background: linear-gradient(#8BD7F0,#fff);
+        border: 2px solid #1FB0DF;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-default1 {
+        background: linear-gradient(to right, #1FB0DF, #1FB0DF);
+    }
+
+    .input-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .input-container {
+        flex: 1;
+    }
+
+    .message-box {
+        flex: 1;
+    }
+</style>
+
+<body style="background-image:url('/images/Time.png'); background-size: cover; background-position: center center; background-repeat: no-repeat; height: 800px; margin: 0; padding: 0;">
+
+    <form class="w1-40" asp-action="Edit" method="post" enctype="multipart/form-data">
+        <h2 class="pb-10">Update Weekly Schedule (SUNDAY HOLIDAY)</h2>
+        <input type="hidden" class="input" asp-for="Id">
+        <input type="hidden" class="input" asp-for="DoctorImage">
+
+
+
+        <div class="input-container">
+            <label asp-for="DoctorName" class="w-40">DoctorName</label>
+            <input type="text" class="input" asp-for="DoctorName">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="DoctorName"> </span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="DoctorName" class="w-40">Doctor Image</label>
+            <input type="file" asp-for="ImageFile" style="margin: 15px 0px 0px -70px">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="ImageFile"> </span>
+        </div>
+
+
+        <div class="input-container">
+            <label asp-for="Specialization" class="w-40">Specialization</label>
+            <input type="text" class="input" asp-for="Specialization">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="Specialization"> </span>
+        </div>
+
+        <div class="input-row">
+            <div class="input-container">
+                <label asp-for="Day1" class="w-40">Monday</label>
+                <input type="Date" class="input" asp-for="Day1" style="margin-left:118px;">
+            </div>
+            <div class="message-box pd-x-28 error">
+                <span asp-validation-for="Day1"> </span>
+            </div>
+
+            <div class="input-container">
+                <label asp-for="Time1" class="w-40" style="margin:-5px 0px 0px -100px">Time</label>
+                <input type="text" class="input" asp-for="Time1" style="width:160px; margin:-5px 0px 0px 28px">
+            </div>
+            <div class="message-box pd-x-28 error">
+                <span asp-validation-for="Time1"> </span>
+            </div>
+
+        </div>
+
+        <div class="input-row">
+            <div class="input-container">
+                <label asp-for="Day2" class="w-40">Tuesday</label>
+                <input type="Date" class="input" asp-for="Day2" style="margin-left:118px;">
+            </div>
+            <div class="message-box pd-x-28 error">
+                <span asp-validation-for="Day2"> </span>
+            </div>
+
+            <div class="input-container">
+                <label asp-for="Time2" class="w-40" style="margin:-5px 0px 0px -100px">Time</label>
+                <input type="text" class="input" asp-for="Time2" style="width:160px; margin:-5px 0px 0px 28px">
+            </div>
+            <div class="message-box pd-x-28 error">
+                <span asp-validation-for="Time2"> </span>
+            </div>
+
+        </div>
+
+
+        <div class="input-row">
+            <div class="input-container">
+                <label asp-for="Day3" class="w-40">Wednesday</label>
+                <input type="Date" class="input" asp-for="Day3" style="margin-left:96px;">
+            </div>
+            <div class="message-box pd-x-28 error">
+                <span asp-validation-for="Day3"> </span>
+            </div>
+
+            <div class="input-container">
+                <label asp-for="Time3" class="w-40" style="margin:-5px 0px 0px -100px">Time</label>
+                <input type="text" class="input" asp-for="Time3" style="width:160px; margin:-5px 0px 0px 28px">
+            </div>
+            <div class="message-box pd-x-28 error">
+                <span asp-validation-for="Time3"> </span>
+            </div>
+
+        </div>
+
+
+        <div class="input-row">
+            <div class="input-container">
+                <label asp-for="Day4" class="w-40">Thursday</label>
+                <input type="Date" class="input" asp-for="Day4" style="margin-left:110px;">
+            </div>
+            <div class="message-box pd-x-28 error">
+                <span asp-validation-for="Day4"> </span>
+            </div>
+
+            <div class="input-container">
+                <label asp-for="Time4" class="w-40" style="margin:-5px 0px 0px -100px">Time</label>
+                <input type="text" class="input" asp-for="Time4" style="width:160px; margin:-5px 0px 0px 28px">
+            </div>
+            <div class="message-box pd-x-28 error">
+                <span asp-validation-for="Time4"> </span>
+            </div>
+        </div>
+
+        <div class="input-row">
+            <div class="input-container">
+                <label asp-for="Day5" class="w-40">Friday</label>
+                <input type="Date" class="input" asp-for="Day5" style="margin-left:124px;">
+            </div>
+            <div class="message-box pd-x-28 error">
+                <span asp-validation-for="Day5"> </span>
+            </div>
+
+            <div class="input-container">
+                <label asp-for="Time5" class="w-40" style="margin:-5px 0px 0px -92px">Time</label>
+                <input type="text" class="input" asp-for="Time5" style="width:160px; margin:-5px 0px 0px 28px">
+            </div>
+            <div class="message-box pd-x-28 error">
+                <span asp-validation-for="Time5"> </span>
+            </div>
+        </div>
+
+        <div class="input-row">
+            <div class="input-container">
+                <label asp-for="Day6" class="w-40">Saturday</label>
+                <input type="Date" class="input" asp-for="Day6" style="margin-left:112px;">
+            </div>
+            <div class="message-box pd-x-28 error">
+                <span asp-validation-for="Day6"> </span>
+            </div>
+
+            <div class="input-container">
+                <label asp-for="Time6" class="w-40" style="margin:-5px 0px 0px -100px">Time</label>
+                <input type="text" class="input" asp-for="Time6" style="width:160px; margin:-5px 0px 0px 28px">
+            </div>
+            <div class="message-box pd-x-28 error">
+                <span asp-validation-for="Time6"> </span>
+            </div>
+        </div>
+
+        @if (TempData["msg"] != null)
+        {
+        <div class="alert mb-1">
+            @TempData["msg"]
+        </div>
+        }
+
+        <div class="input-container">
+            <button class="btn btn-default1" type="submit">Save</button>
+            <a class="btn btn-default1" href="/Schedule/ScheduleList">All records</a>
+        </div>
+    </form>
+
+</body>

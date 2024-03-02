@@ -1,0 +1,124 @@
+﻿@model MovieStoreMvc.Models.DTO.ScheduleListVm
+@{
+}
+
+<style>
+    .btn-default1 {
+        background: linear-gradient(to right, #1FB0DF, #1FB0DF);
+    }
+
+    .btn-danger1 {
+        background: linear-gradient(to right, #DD1010, #DD1010);
+    }
+
+    .container {
+        background: linear-gradient(#fff, #85D8F2);
+    }
+
+
+    .tbl-container {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 10px;
+    }
+
+    th {
+        background-color: #85D8F2;
+        color: black;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+
+
+    .btn-container {
+        margin-top: 20px;
+    }
+</style>
+
+
+
+<section class="search-bar">
+    <form method="get" asp-action="ScheduleList">
+        <input type="text" name="term" placeholder="search name">
+        <button type="submit"><i class="fa fa-search"></i></button>
+        <a class="btn btn-default1" href="/Schedule/ScheduleList">All</a>
+    </form>
+</section>
+
+
+
+<div class="tbl-container">
+    <h2>Doctor Weekly Appointment Schedule (SUNDAY HOLIDAY)</h2>
+
+    <table>
+        <tr>
+            <th>Image</th>
+            <th>DoctorName</th>
+            <th>Specialization</th>
+            <th>Date</th>
+            <th>AppointmentTime</th>
+            @if (User.IsInRole("Doctor"))
+            {
+                <th>Action</th>
+
+            }
+
+
+        </tr>
+        @foreach (var item in Model.ScheduleList)
+        {
+            <tr>
+                <td><img style="height:150px;width:150px" src="/Uploads/@item.DoctorImage" /></td>
+                <td>@item.DoctorName</td>
+                <td>@item.Specialization</td>
+                <td>
+                    @item.Day1 :Monday<br>
+                    @item.Day2 :Tuesday<br>
+                    @item.Day3 :Wednesday<br>
+                    @item.Day4 :Thursday<br>
+                    @item.Day5 :Friday<br>
+                    @item.Day6 :Saturday<br>
+                </td>
+
+                <td>
+                    @item.Time1<br>
+                    @item.Time2<br>
+                    @item.Time3<br>
+                    @item.Time4<br>
+                    @item.Time5<br>
+                    @item.Time6<br>
+                </td>
+
+
+                <td>
+                    @if (User.IsInRole("Doctor"))
+                    {
+                        <a href="/Schedule/Edit?id=@item.Id" class="btn btn-default1"><i class="fa fa-edit"></i></a>
+                        <a onclick="return window.confirm('Are you sure?')" href="/Schedule/Delete?id=@item.Id" class="btn btn-danger1"><i class="fa fa-trash"></i></a>
+
+                    }
+
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="input-container">
+        <a href="/Schedule/Add" class="btn btn-default1">Back</a>
+    </div>
+</div>

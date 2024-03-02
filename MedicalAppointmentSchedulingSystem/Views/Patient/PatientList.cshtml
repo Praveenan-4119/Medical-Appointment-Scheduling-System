@@ -1,0 +1,86 @@
+﻿@model MedicalAppointmentSchedulingSystem.Models.DTO.PatientListVm
+@{
+}
+
+<style>
+   
+    .btn-default1 {
+        background: linear-gradient(to right, #1FB0DF, #1FB0DF);
+    }
+
+    .container {
+        background: linear-gradient(#fff, #85D8F2);
+    }
+
+
+    .tbl-container {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 10px;
+    }
+
+    th {
+        background-color: #85D8F2;
+        color: black;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+
+
+    .btn-container {
+        margin-top: 20px;
+    }
+</style>
+
+
+<div class="tbl-container">
+    <h2>Appointment Details</h2>
+
+    <table>
+        <tr>
+
+            <th>Patient Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Appoint Date</th>
+            <th>Appoint Time</th>
+            <th>Disease</th>
+            <th>Doctor Name</th>
+            <th>Payment Slip Image</th>
+            
+        </tr>
+        @foreach(var item in Model.PatientList){
+        <tr>
+            <td>@item.PatientName</td>           
+            <td>@item.PhoneNumber</td>
+            <td>@item.Email</td>
+            <td>@item.AppointmentDate</td>
+            <td>@item.AppointmentTime</td>
+            <td>@item.Disease</td>
+            <td>@item.DoctorNames</td>
+            <td><img style="height:150px;width:150px" src="/Uploads/@item.BankSlipImage" /></td>
+            
+        </tr>
+        }
+     
+    </table>
+    <div class="input-container">
+        <a href="/Doctor/Add" class="btn btn-default1">Back</a>
+    </div>
+</div>
+

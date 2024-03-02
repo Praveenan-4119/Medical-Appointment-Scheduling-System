@@ -1,0 +1,83 @@
+﻿@model MedicalAppointmentSchedulingSystem.Models.Domain.Doctor
+@{
+}
+
+<style>
+    /* Container for the movie details */
+    .doctor-detail {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        border: 1px solid black;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(#8BD7F0,#fff);
+        margin: 20px;
+    }
+
+    .btn-default1 {
+        background: linear-gradient(to right, #1FB0DF, #1FB0DF);
+    }
+
+    /* Image container */
+    .img-container {
+        width: 300px;
+        height: 300px;
+        margin-right: 20px;
+    }
+
+        .img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 50%;
+        }
+
+    /* Detail container */
+    .detail-container {
+        flex: 1;
+    }
+
+    /* Style for the headings */
+    h3, h4 {
+        margin: 5px 0;
+    }
+
+    /* Style for the h3 headings */
+    h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    /* Style for the h4 headings */
+    h4 {
+        font-size: 1.2rem;
+        font-weight: normal;
+    }
+
+    /* Style for the "img" tag */
+    img {
+        border: 2px solid black;
+    }
+
+    /* Add more styles and adjust as needed */
+
+</style>
+
+<div class="doctor-detail w-80 m-auto">
+    <div class="img-container">
+        <img alt="image" src="/Uploads//@Model.DoctorImage">
+    </div>
+
+    <div class="detail-container">
+        <h3>Name            : @Model.DoctorName</h3>
+        <h3>Date of Birth   : @Model.DateOfBirth</h3>
+        <h3>Gender          : @Model.Gender</h3>
+        <h3>Address         : @Model.Address</h3>
+        <h3>phone Number    : @Model.PhoneNumber</h3>
+       
+    </div>
+</div>
+<div class="w-80 m-auto" style="margin:0px 0px 0px 20px">
+    <a href="/Home/Index" class="btn btn-default1">Back</a>
+</div>

@@ -1,0 +1,125 @@
+﻿@model MedicalAppointmentSchedulingSystem.Models.DTO.LoginModel
+@{
+
+}
+
+<head>
+    <style>
+        /* Basic styling for the login form */
+        .w1-40 {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(#8BD7F0,#fff);
+            border: 2px solid #1FB0DF;
+            border-radius: 60px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-default1 {
+            background: linear-gradient(to right, #1FB0DF, #1FB0DF);
+            border-radius: 50rem;
+            width: 300px;
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .input-container1 {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input1 {
+            width: 100%;
+            height: 35px;
+            padding: 10px;
+            border: 1px solid #1FB0DF;
+            border-radius: 60px;
+            font-size: 16px;
+        }
+
+        
+
+        
+
+
+        /* Style the Login button */
+    
+
+        /* Style the SignUp link */
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #2E97F9;
+            font-family:'Mukta', sans-serif;
+        }
+
+        .or{
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #0D93BE;
+            font-family: 'Mukta', sans-serif;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+    </style>
+</head>
+
+
+
+<body style="background-image:url('/images/Sc1.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; height: 100vh; margin: 0; padding: 0;">
+
+
+    <form class="w1-40" asp-action="Login" method="post" style="margin:0px 0px 0px 55px">
+        <h2 class="pb-10">Login</h2>
+        <div class="input-container1">
+            <label asp-for="Username" class="w-40">Username</label>
+            <input type="text" class="input1" asp-for="Username">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="Username"></span>
+        </div>
+
+
+        <div class="input-container1" style="margin:-20px 0px 30px 0px">
+            <label asp-for="Password" class="w-40">Password</label>
+            <input type="password" class="input1" asp-for="Password">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="Password"></span>
+        </div>
+
+
+        @if (TempData["msg"] != null)
+        {
+            <div class="alert mb-1">
+                @TempData["msg"]
+            </div>
+        }
+
+        <div class="input-container1">
+            <button class="btn btn-default1" type="submit" style="margin:0px 0px 0px 30px">Login</button>
+            <p class="or">------------------------- or --------------------------</p>
+            <a href="/UserAuthentication/RegistrationPatient">Create an Account</a>
+@*             <a href="/UserAuthentication/RegistrationDoctor">Create an account as a Doctor</a> *@
+
+        </div>
+    </form>
+
+</body>
+

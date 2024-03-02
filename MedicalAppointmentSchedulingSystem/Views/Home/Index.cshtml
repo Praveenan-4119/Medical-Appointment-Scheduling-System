@@ -1,0 +1,77 @@
+﻿@model MedicalAppointmentSchedulingSystem.Models.DTO.DoctorListVm
+@{
+    Layout = "_Layout";
+}
+
+<style>
+    .btn-default1{
+        background: linear-gradient(to right, #1FB0DF, #1FB0DF);
+    }
+</style>
+
+<body style="background-image:url('/images/front.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; height: 500px; margin: 0; padding: 0;">
+
+
+<section style="margin: 20px 0px 0px 0px">
+
+    <div style="padding: 20px; text-align: center; margin:0px 0px 0px 0px">
+
+        <h1 style="font-size: 36px; font-weight: bold; color:black;font-family:'Mukta', sans-serif; margin:-25px 0px 0px 0px;">Avoid Hassles and Delays</h1>
+
+            <h1 style="font-size: 20px; font-weight: bold;color:black;font-family:'Mukta', sans-serif;margin:-10px 0px 0px 0px;">
+            How is health today, Sounds like not good!            
+        </h1>
+            <h1 style="font-size: 20px; font-weight: bold;color:black;font-family:'Mukta', sans-serif;margin:-10px 0px 0px 0px;">
+            Don’t Worry.  Find your Doctor online Book as you wish with eDoc.           
+        </h1>
+        <h1 style="font-size: 20px; font-weight: bold;color:black;font-family:'Mukta', sans-serif;margin:-10px 0px 0px 0px;">
+            We often you a free doctor channeling service. Make your Appointment now.
+        </h1>
+    </div>
+ 
+</section>
+
+    <section class="search-bar">
+        <form method="get" asp-action="Index">
+            <input type="text" name="term" placeholder="search here">
+            <button type="submit"><i class="fa fa-search"></i></button>
+            <a class="btn btn-default1" href="/Home/Index">All</a>
+        </form>
+    </section>
+
+
+<section class="movies" style="margin:30px 0px 0px 0px;">
+
+    @foreach (var doctor in Model.DoctorList)
+    {
+        <div class="movie-card" style="background: linear-gradient(#8BD7F0,#fff);" onclick="window.location.href='/Home/DoctorDetail?doctorId=@doctor.Id'">
+            <div class="movie-image">
+                <img src="/Uploads//@doctor.DoctorImage">
+            </div>
+            <div class="movie-info">
+                <h4>Name           : @doctor.DoctorName</h4>
+                <h4>Specialization : @doctor.Specialization</h4>
+                <h4>Experience     : @doctor.Experience</h4>
+            </div>
+        </div>
+
+    }
+
+</section>
+
+<div class="pagination">
+    @for (int i = 1; i <= Model.TotalPages; i++)
+    {
+        if (i == Model.CurrentPage)
+        {
+                <a style=" background:#1FB0DF" href="/Home/Index?currentPage=@i&term=@Model.Term" class="active">@i</a>
+        }
+        else
+        {
+            <a href="/Home/Index?currentPage=@i&term=@Model.Term">@i</a>
+
+        }
+    }
+
+</div>
+</body>

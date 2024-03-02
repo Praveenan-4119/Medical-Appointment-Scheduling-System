@@ -1,0 +1,171 @@
+﻿@{
+    string username = User.Identity.Name;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedicalAppointmentSchedulingSystem</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/images/movie_filter_FILL0_wght400_GRAD0_opsz48.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        /* Style for the navigation bar */
+        .nav-bar {
+            background: linear-gradient(#1FB0DF,#fff);
+        
+            
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        /* Style for the logo */
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Style for the navigation links */
+        .nav-link {
+            list-style: none;
+            display: flex;
+        }
+
+            /* Style for each navigation list item */
+            .nav-link li {
+                margin-right: 20px;
+            }
+
+            /* Style for the active link */
+            .nav-link a.active {
+                text-decoration: underline;
+            }
+
+        /* Style for the dropdown menus */
+        .dropdown-nav-link {
+            display: none;
+            position: absolute;
+            background: linear-gradient(#8BD7F0,#fff);
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        /* Style for dropdown on hover */
+        .nav-link li:hover .dropdown-nav-link {
+            display: block;
+        }
+
+        /* Style for dropdown list items */
+        .dropdown-nav-link li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        /* Style for the dropdown icon */
+        .fa-caret-down {
+            margin-left: 5px;
+        }
+
+        /* Style for links in dropdown */
+        .dropdown-nav-link a {
+            text-decoration: none;
+            color: #333;
+        }
+
+            /* Hover effect for links in dropdown */
+            .dropdown-nav-link a:hover {
+                background-color: #f5f5f5;
+            }
+
+    </style>
+
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="logo">
+            MEDICAL APPOINTMENT SCHEDULING SYSTEM.<i style="color:red;font-size:25px" class="fa fa-plus"></i>
+        </div>
+        <ul class="nav-link">
+            <li><a class="active" href="/Home/Index">Home</a></li>
+            <li><a href="/Home/About">About</a></li>
+            @if (string.IsNullOrEmpty(username))//User.IsInRole("Admin")
+            {
+                <li><a href="/UserAuthentication/Login">Login</a></li>
+            }
+            @if (!string.IsNullOrEmpty(User.Identity.Name))
+            {
+                @if (User.IsInRole("Admin"))
+                {
+                    <li>
+                        <a href="#">Admin<i class="fa fa-caret-down"></i></a>
+
+                        <ul class="dropdown-nav-link" style="margin: 15px 0px 0px -80px">
+                            <li><a href="/UserAuthentication/RegistrationDoctor">CreateDoctorAccount</a></li>
+                            <li><a href="/Doctor/Add">RegisterDoctor</a></li>
+                            <li><a href="/Doctor/DoctorList">DoctorDetails</a></li>
+                            <li><a href="/Patient/PatientList">ViewAppointments</a></li>
+                           
+                           
+                            
+                        </ul>
+                    </li>
+                }
+                @if (User.IsInRole("Patient"))
+                {
+                    <li>
+                        <a href="#">Patients<i class="fa fa-caret-down"></i></a>
+
+                        <ul class="dropdown-nav-link" style="margin: 15px 0px 0px -80px">
+                            <li><a href="/Patient/Add">MakeAppointment</a></li>
+                            <li><a href="/Home/Index">DoctorDetails</a></li>
+                            <li><a href="/Schedule/ScheduleList">DoctorSchedule</a></li>
+                            <li><a href="/UserAuthentication/Logout">Logout</a></li>
+                            
+                        </ul>
+                    </li>
+                }
+                @if (User.IsInRole("Doctor"))
+                {
+
+                    <li>
+                        <a href="#">Doctors<i class="fa fa-caret-down"></i></a>
+
+                        <ul class="dropdown-nav-link" style="margin: 15px 0px 0px -105px">
+                            <li><a href="/Schedule/Add">WeeklySchedule</a></li>
+                            <li><a href="/Schedule/ScheduleList">ManageSchedule</a></li>
+                            <li><a href="/Patient/PatientList">ViewAppointments</a></li>
+                            <li><a href="/UserAuthentication/Logout">Logout</a></li>
+                            
+
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    <li><a href="/UserAuthentication/Logout">Logout</a></li>
+                }
+
+
+            }
+            
+        </ul>
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <footer style="background-color:#1FB0DF; color:#fff">
+        &#169; 2023 Healthcare Providers
+    </footer>
+</body>
+</html>

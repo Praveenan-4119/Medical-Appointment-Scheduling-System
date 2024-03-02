@@ -1,0 +1,90 @@
+﻿@model MedicalAppointmentSchedulingSystem.Models.DTO.DoctorListVm
+@{
+}
+
+<style>
+    .btn-default1 {
+        background: linear-gradient(to right, #1FB0DF, #1FB0DF);
+    }
+
+    .btn-danger1 {
+        background: linear-gradient(to right, #DD1010, #DD1010);
+    }
+
+    .container {
+        background: linear-gradient(#fff, #85D8F2);
+    }
+
+
+    .tbl-container {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 10px;
+    }
+
+    th {
+        background-color: #85D8F2;
+        color: black;
+        
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+
+
+    .btn-container {
+        margin-top: 20px;
+    }
+</style>
+
+<div class="tbl-container">
+    <h2>Doctor Details</h2>
+
+    <table>
+        <tr>
+            <th>Image</th>
+            <th>Doctor Name</th>           
+            <th>Date of Birth</th>           
+            <th>Gender</th>           
+            <th>Specialization</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Experience</th>
+            <th>Action</th>
+        </tr>
+        @foreach(var item in Model.DoctorList){
+        <tr>
+            <td><img style="height:150px;width:150px" src="/Uploads/@item.DoctorImage" /></td>
+            <td>@item.DoctorName</td>            
+            <td>@item.DateOfBirth</td>            
+            <td>@item.Gender</td>          
+            <td>@item.Specialization</td>                    
+            <td>@item.Address</td>
+            <td>@item.PhoneNumber</td>
+            <td>@item.Experience</td>
+            <td>
+                    <a href="/Doctor/Edit?id=@item.Id" class="btn btn-default1"><i class="fa fa-edit"></i></a>
+                    <a onclick="return window.confirm('Are you sure?')" href="/Doctor/Delete?id=@item.Id" class="btn btn-danger1"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+        }
+     
+    </table>
+    <div class="input-container">
+        <a href="/Doctor/Add" class="btn btn-default1">Back</a>
+    </div>
+</div>
